@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import LinkPreview from "@/app/components/link-preview";
 
 const LINKS = {
   kerala: "https://www.google.com/search?q=kerala&ie=UTF-8",
@@ -61,9 +62,11 @@ export default function Home() {
           </p>
           <span className={paragraphStyles}>
             Beyond my work, I share what I learn through programming, design,
-            and DevOps on documenting projects, experiments, and lessons as I
-            grow. This portfolio is a collection of that journey—the things I
-            build, learn, and explore.
+            and DevOps on{" "}
+            <LinkPreview url={LINKS.youtube} name="YouTube" image="" />,
+            documenting projects, experiments, and lessons as I grow. This
+            portfolio is a collection of that journey—the things I build, learn,
+            and explore.
           </span>
           <p className={paragraphStyles}>
             Feel free to reach out to me at{" "}
