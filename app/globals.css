@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+::selection {
+  background: var(--selection-color);
+  color: rgb(0 0 0 / 50%);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--selection-color) 50%, transparent);
+  color: #000;
+  border-radius: 6px;
+  padding: 2px 4px;
+}

@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import LinkPreview from "@/app/components/link-preview";
+import { useEffect, useState } from "react";
+import { useAnimate } from "motion/react";
 
 const LINKS = {
   kerala: "https://www.google.com/search?q=kerala&ie=UTF-8",
@@ -15,9 +17,48 @@ const linkStyles =
 
 const paragraphStyles = "font-inter text-[14px] font-medium text-black";
 
+const SELECTION_COLOR: Array<string> = [
+  "#67E1FF",
+  "#53FF9D",
+  "#C267FF",
+  "#EBFF67",
+  "#FF8367",
+  "#E2E2E2",
+];
+
 export default function Home() {
+  const [selectionColor, setSelectionColor] = useState<string>("");
+  const [, animate] = useAnimate();
+
+  useEffect(() => {
+    let index = 0;
+
+    const interval = setInterval(() => {
+      index = (index + 1) % SELECTION_COLOR.length;
+
+      animate(
+        document.documentElement,
+        {
+          "--selection-color": SELECTION_COLOR[index],
+        },
+        {
+          duration: 1,
+          ease: "easeInOut",
+        },
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [animate]);
   return (
-    <div className="flex items-center justify-center w-full min-h-screen bg-white">
+    <div
+      className="flex items-center justify-center w-full min-h-screen bg-white"
+      style={
+        {
+          "--selection-color": selectionColor,
+        } as React.CSSProperties
+      }
+    >
       <div className="flex flex-col items-start justify-center w-2xl h-screen gap-5">
         <div className="flex flex-col gap-5 w-full" id="head">
           <div className="flex items-center justify-center w-11.25 aspect-square bg-black/10">
