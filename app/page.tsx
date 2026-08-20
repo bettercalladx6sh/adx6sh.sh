@@ -1,3 +1,5 @@
+"use client";
+import Image from "next/image";
 import Link from "next/link";
 
 const LINKS = {
@@ -17,7 +19,19 @@ export default function Home() {
     <div className="flex items-center justify-center w-full min-h-screen bg-white">
       <div className="flex flex-col items-start justify-center w-2xl h-screen gap-5">
         <div className="flex flex-col gap-5 w-full" id="head">
-          <div className="flex items-center justify-center w-11.25 aspect-square bg-black/10"></div>
+          <div className="flex items-center justify-center w-11.25 aspect-square bg-black/10">
+            <Image
+              src="/avatar.png"
+              alt="Adarsh Anilkumar"
+              width={100}
+              height={100}
+              sizes="100px"
+              priority
+              draggable={false}
+              unoptimized
+              className="overflow-hidden"
+            />
+          </div>
           <div className="flex flex-col items-start justify-center w-full font-inter font-medium">
             <h3 className="text-black text-[14.5px]">Adarsh Anilkumar</h3>
             <p className="text-black/40 font-devanagari">/ आदर्श</p>
