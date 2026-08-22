@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "adx6sh",
+  title: "adx6sh.sh ",
   description: "",
 };
 
